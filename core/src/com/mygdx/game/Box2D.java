@@ -30,6 +30,7 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.TimeUtils;
 
+
 import java.util.Iterator;
 
 public class Box2D implements Screen, InputProcessor {
@@ -300,18 +301,18 @@ public class Box2D implements Screen, InputProcessor {
         for (Sprite sprTtube : arsprTopTube) {
             batch.draw(sprTtube, sprTtube.getX(), sprTtube.getY());
         }
-        batch.end();
-        if(TimeUtils.nanoTime()-movetime>1000000*nspawnTime)spawnTubesTopTubes();
-        Iterator<Sprite> iter=arsprTopTube.iterator();
-        while(iter.hasNext()){
+        if (TimeUtils.nanoTime() - movetime > 1000000 * nspawnTime) spawnTubesTopTubes();
+        Iterator<Sprite> iter = arsprTopTube.iterator();
+        while (iter.hasNext()) {
             Sprite sprTtube = iter.next();
-            sprTtube.setX(sprTtube.getX()- (150)* Gdx.graphics.getDeltaTime());
+            sprTtube.setX(sprTtube.getX() - (150) * Gdx.graphics.getDeltaTime());
 
             //System.out.println(player.getPosition(x,y);
-        batch.draw(aPlayer.getKeyFrame(elapsedTime, true), player.getPosition().x, player.getPosition().y - spBird[0].getHeight() / 2);
-        if(Gdx.input.justTouched()) //used for dectecting if the screen is clicked
-            Sound.play();
-        batch.end();
+            batch.draw(aPlayer.getKeyFrame(elapsedTime, true), player.getPosition().x, player.getPosition().y - spBird[0].getHeight() / 2);
+            if (Gdx.input.justTouched()) //used for dectecting if the screen is clicked
+                Sound.play();
+            batch.end();
+        }
     }
 
         /**
